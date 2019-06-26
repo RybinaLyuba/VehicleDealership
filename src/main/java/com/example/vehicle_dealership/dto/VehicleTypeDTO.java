@@ -1,10 +1,10 @@
 package com.example.vehicle_dealership.dto;
 
-import lombok.Data;
 
-@Data
-public class VehicleTypeDTO {
-    String name;
-    int count;
+
+/**
+ * DTO класс для подсчета количества транспортных средств определенного типа.
+ */
+public class VehicleTypeDTO extends AbstractEntityDTO {
 
 }

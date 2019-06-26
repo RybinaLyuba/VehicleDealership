@@ -1,24 +1,29 @@
 package com.example.vehicle_dealership.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+/**
+ * Марка транспортного средства. Объект-отображения таблицы marque в базе данных.
+ * @author Rybina Lyuba
+ */
 
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Marque extends AbstractEntity {
-    @OneToMany(mappedBy = "marque")
-    @JsonIgnore
-    List<Vehicle> vehicles=new ArrayList<>();
-
+    /**
+     * Создает новую марку ТС.
+     * @param name Наименование марки.
+     */
     public Marque(String name){
-        this.name=name;
+        super(name);
     }
 
+    /**
+     * Создает новую пустую марку.
+     */
     public Marque(){}
 }

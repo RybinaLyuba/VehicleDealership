@@ -1,18 +1,26 @@
 package com.example.vehicle_dealership.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
-import java.util.List;
 
+/**
+ * Тип траспортного средства. Объект-отображения для таблицы vehicle_type в базе данных.
+ * @author Rybina Lyuba
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class VehicleType extends AbstractEntity {
-    @OneToMany(mappedBy = "vehicleType")
-    List<Vehicle> vehicles;
-
+    /**
+     * Создает новый тип ТС.
+     * @param name Наименования типа.
+     */
     public VehicleType(String name){
-        this.name=name;
+        super(name);
     }
+
+    /**
+     * Создает новый пустой тип ТС.
+     */
     public VehicleType(){}
+
 }

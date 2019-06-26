@@ -1,24 +1,26 @@
 package com.example.vehicle_dealership.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 
-
+/**
+ * Статус транспортного средства. Объект-отображения для таблицы status в базе данных.
+ * @author Rybina Lyuba
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Status extends AbstractEntity {
-    @OneToMany(mappedBy = "status")
-    @JsonIgnore
-    List<Vehicle> vehicles;
-
+    /**
+     * Создает новый статус
+     * @param name Наименование статуса
+     */
     public Status(String name){
-        this.name=name;
+        super(name);
     }
-    public Status(){}
 
+    /**
+     * Создает новый пустой статус.
+     */
+    public Status(){}
 }
