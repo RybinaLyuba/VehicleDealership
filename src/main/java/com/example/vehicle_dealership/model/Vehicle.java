@@ -7,8 +7,6 @@ import lombok.Data;
 
 import lombok.ToString;
 
-
-
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,16 +21,17 @@ import java.util.UUID;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Vehicle {
-
+    //Первичный ключ ТС
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID guid;
 
-
+    //Внешний ключ к сущности тип ТС
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id")
     VehicleType vehicleType;
 
+    //Внешний ключ к сущности марка
     @ManyToOne
     @JoinColumn(name = "marque_id")
     Marque marque;
@@ -49,6 +48,7 @@ public class Vehicle {
 
     int price;
 
+    //Внешний ключ к сущности статус
     @ManyToOne
     @JoinColumn(name = "status_id")
     Status status;
@@ -61,6 +61,5 @@ public class Vehicle {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime dateUpdate;
-
 
 }
