@@ -29,12 +29,12 @@ public class Vehicle {
     UUID guid;
 
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "vehicle_type_id",nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "vehicle_type_id")
     VehicleType vehicleType;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "marque_id",nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "marque_id")
     Marque marque;
 
     String model;

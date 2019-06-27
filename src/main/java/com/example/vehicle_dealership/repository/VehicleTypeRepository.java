@@ -3,6 +3,8 @@ package com.example.vehicle_dealership.repository;
 import com.example.vehicle_dealership.model.VehicleType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+
+
 /**
  * Интерфейс - реозиторий
  * @author Rybina Lyuba

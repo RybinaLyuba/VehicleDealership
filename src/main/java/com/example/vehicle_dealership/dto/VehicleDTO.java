@@ -11,6 +11,8 @@ import java.util.UUID;
  * DTO класс для транспортного средства.
  */
 @Data
+//Игнорирование Null полей
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class VehicleDTO {
     UUID guid;
 
@@ -34,19 +36,14 @@ public class VehicleDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime dateInsert;
 
-    //Игнорирует null дату
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     //Форматирует дату для передчи в JSON
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime datePurchase;
 
-    //Игнорирует null дату
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+
     //Форматирует дату для передчи в JSON
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime dateUpdate;
 
-    //Игнорирует null статус
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     String status;
 }

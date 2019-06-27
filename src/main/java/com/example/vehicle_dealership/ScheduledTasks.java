@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 public class ScheduledTasks {
-    public static final Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
+    private static final Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
 
     @Autowired
     public VehicleRepository vehicleRepository;
@@ -23,7 +23,8 @@ public class ScheduledTasks {
      */
     @Scheduled(fixedRateString = "${spring.boot.schedule.rate}")
     public void priceReset(){
-        List<Vehicle> vehicleList = vehicleRepository.findAll();
+        List<Vehicle> vehicleList = vehicleRepository.findAll();//получение всех ТС из БД
+        //Если список не пуст, получение рандомного элемента списка и замена свойства price.
         if(vehicleList.size()>0){
             int randomIndex = (int) (Math.random()*vehicleList.size());
             Vehicle vehicle = vehicleList.get(randomIndex);
